@@ -1,17 +1,14 @@
 {
-    "version": 2,
     "cleanUrls": true,
     "trailingSlash": true,
-    "framework": null,
     "rewrites": [
-      { "source": "/dashboard", "destination": "/dashboard.html" }
-    ],
-    "headers": [
       {
-        "source": "/(.*)",
-        "headers": [
-          { "key": "Cache-Control", "value": "no-store, max-age=0" }
-        ]
+        "source": "/apps/:app/src/:path*",
+        "destination": "/apps/:app/:path*"
+      },
+      {
+        "source": "/apps/:path*",
+        "destination": "/apps/:path*/index.html"
       }
     ]
   }
