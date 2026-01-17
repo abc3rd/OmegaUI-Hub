@@ -2,210 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Connect Resource Hub</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-<script src='/global-nav.js'></script></head>
-<body>
-    <div id="app-container">
-        <header>
-            <div class="logo">
-                <i class="fas fa-cloud"></i>
-                Cloud Connect
-            </div>
-            <div class="header-controls">
-                <div id="user-profile" class="user-profile" style="display: none;">
-                    <i class="fas fa-user-circle"></i>
-                    <span id="user-name">User</span>
-                    <span id="trust-badge" class="trust-badge" style="display: none;">Trusted</span>
-                    <span id="establishment-badge" class="establishment-badge" style="display: none;">Organization</span>
-                </div>
-                <button id="auth-btn" class="btn btn-secondary">Sign In</button>
-            </div>
-        </header>
-        
-        <div id="map-container">
-            <div id="map"></div>
-            
-            <div id="controls">
-                <button id="current-location-btn" class="control-btn btn-secondary" title="My Location">
-                    <i class="fas fa-location-arrow"></i>
-                </button>
-                <button id="add-resource-btn" class="control-btn btn-primary" title="Add Resource">
-                    <i class="fas fa-plus"></i>
-                </button>
-                <button id="profile-btn" class="control-btn btn-secondary" title="My Profile" style="display: none;">
-                    <i class="fas fa-user"></i>
-                </button>
-            </div>
-            
-            <div class="legend">
-                <h3>Resource Types</h3>
-                <div id="legend-items"></div>
-            </div>
+    <title>UCP | Command Console</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --magenta: #ea00ea; --blue: #2699fe; --dark: #121212; }
+        body { background: var(--dark); color: #00ff00; font-family: 'Courier New', monospace; }
+        .terminal-header { background: var(--magenta); color: white; padding: 5px 15px; font-weight: bold; }
+        .btn-blue { background: var(--blue); color: white; padding: 8px 15px; border-radius: 4px; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+    <div class="max-w-4xl mx-auto border border-white/20 rounded-lg overflow-hidden shadow-2xl">
+        <div class="terminal-header flex justify-between">
+            <span>UNIVERSAL COMMAND PROTOCOL v4.4</span>
+            <span>SYSTEM: ONLINE</span>
         </div>
-    </div>
-
-    <div id="auth-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Join Cloud Connect</h2>
-                <button class="close-btn">&times;</button>
+        <div class="p-6 bg-black/80 min-h-[400px]">
+            <div id="output" class="mb-4">
+                <p class="text-white font-bold tracking-widest uppercase mb-2">Initializing Intent Infrastructure...</p>
+                <p>> Loading Python Module: <span id="app-name" style="color:var(--blue)">Scanning...</span></p>
+                <p>> Locating setup.py and requirements.txt...</p>
+                <div id="tech-stack" class="mt-4 p-4 border border-white/10 text-xs text-gray-400">
+                    <p>// Analyzing local repository structure...</p>
+                    <p>// UCP Sovereign Logic: ACTIVE</p>
+                </div>
             </div>
-            <div id="auth-form-container">
-                <div class="account-type-selector">
-                    <h3>Account Type</h3>
-                    <div class="account-type-option">
-                        <input type="radio" name="accountType" value="individual" id="individual" checked>
-                        <label for="individual">
-                            <strong>Individual User</strong><br>
-                            <small>Share and discover community resources</small>
-                        </label>
-                    </div>
-                    <div class="account-type-option">
-                        <input type="radio" name="accountType" value="organization" id="organization">
-                        <label for="organization">
-                            <strong>Organization/Establishment</strong><br>
-                            <small>Manage official events and verified resources</small>
-                        </label>
-                    </div>
-                </div>
-
-                <form id="auth-form-signup">
-                    <div class="form-group">
-                        <label for="auth-email">Email:</label>
-                        <input type="email" id="auth-email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="auth-password">Password:</label>
-                        <input type="password" id="auth-password" name="password" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="display-name">Display Name:</label>
-                        <input type="text" id="display-name" name="displayName" required>
-                    </div>
-                    <div id="organization-fields" style="display: none;">
-                        <div class="form-group">
-                            <label for="org-name">Organization Name:</label>
-                            <input type="text" id="org-name" name="orgName">
-                        </div>
-                        <div class="form-group">
-                            <label for="org-type">Organization Type:</label>
-                            <select id="org-type" name="orgType">
-                                <option value="">Select type</option>
-                                <option value="church">Church/Religious</option>
-                                <option value="charity">Charity/Non-profit</option>
-                                <option value="government">Government</option>
-                                <option value="business">Local Business</option>
-                                <option value="community">Community Group</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="button-group">
-                        <button type="submit" class="btn btn-primary">Create Account</button>
-                        <button type="button" id="switch-to-signin" class="btn btn-secondary">Sign In Instead</button>
-                    </div>
-                </form>
-
-                <form id="auth-form-signin" style="display: none;">
-                    <div class="form-group">
-                        <label for="signin-email">Email:</label>
-                        <input type="email" id="signin-email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="signin-password">Password:</label>
-                        <input type="password" id="signin-password" name="password" required>
-                    </div>
-                    <div class="button-group">
-                        <button type="submit" class="btn btn-primary">Sign In</button>
-                        <button type="button" id="switch-to-signup" class="btn btn-secondary">Create Account</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div id="form-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Add New Resource</h2>
-                <button class="close-btn">&times;</button>
-            </div>
-            <form id="resource-form">
-                <div class="form-group">
-                    <label for="resource-name">Resource Name:</label>
-                    <input type="text" id="resource-name" name="resource-name" placeholder="e.g., Publix Community Table" required>
-                </div>
-                <div class="form-group">
-                    <label for="type">Resource Type:</label>
-                    <select id="type" name="type" required>
-                        <option value="">--Select resource type--</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea id="description" name="description" rows="3" placeholder="Detailed description of the resource..." required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="operating-hours">Operating Hours:</label>
-                    <input type="text" id="operating-hours" name="operating-hours" placeholder="e.g., 24/7 or Mon-Fri 9am-5pm">
-                </div>
-                <div class="form-group">
-                    <label for="contact-info">Contact Information:</label>
-                    <input type="text" id="contact-info" name="contact-info" placeholder="Phone, email, or website">
-                </div>
-                <div class="form-group">
-                    <label for="accessibility">Accessibility Notes:</label>
-                    <textarea id="accessibility" name="accessibility" rows="2" placeholder="Wheelchair accessible, special accommodations, etc."></textarea>
-                </div>
-                <div class="button-group">
-                    <button type="submit" class="btn btn-primary">Share Resource</button>
-                    <button type="button" class="btn btn-secondary cancel-btn">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div id="profile-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>My Profile</h2>
-                <button class="close-btn">&times;</button>
-            </div>
-            <div id="profile-content">
-                <div class="profile-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" id="resources-added">0</div>
-                        <div class="stat-label">Resources Added</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="verifications-made">0</div>
-                        <div class="stat-label">Verifications</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="trust-score">0</div>
-                        <div class="stat-label">Trust Score</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="comments-posted">0</div>
-                        <div class="stat-label">Comments</div>
-                    </div>
-                </div>
-                <div class="button-group">
-                    <button id="logout-btn" class="btn btn-secondary">Sign Out</button>
+            <div class="mt-8 border-t border-white/20 pt-6">
+                <h3 class="text-white font-bold mb-4">SOVEREIGN ACTIONS</h3>
+                <div class="flex gap-4">
+                    <button onclick="alert('Accessing Python Source...')" class="btn-blue text-xs uppercase font-bold">Inspect Source</button>
+                    <button onclick="window.location.href='/dashboard.html'" class="border border-white/30 text-white text-xs px-4 py-2 uppercase">Return to Hub</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <div id="toast" class="toast">
-        <span id="toast-message"></span>
-    </div>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script type="module" src="app.js"></script>
+    <script>
+        const pathParts = window.location.pathname.split('/');
+        const appName = pathParts[pathParts.length - 2] || "Unknown Module";
+        document.getElementById('app-name').innerText = appName.replace(/-/g, ' ').toUpperCase();
+    </script>
 </body>
 </html>

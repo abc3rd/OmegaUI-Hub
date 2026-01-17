@@ -24,6 +24,7 @@
                 <p>> Locating setup.py and requirements.txt...</p>
                 <div id="tech-stack" class="mt-4 p-4 border border-white/10 text-xs text-gray-400">
                     <p>// Analyzing local repository structure...</p>
+                    <p>// UCP Sovereign Logic: ACTIVE</p>
                 </div>
             </div>
             <div class="mt-8 border-t border-white/20 pt-6">
@@ -35,9 +36,7 @@
             </div>
         </div>
     </div>
-
     <script>
-        // Auto-detect app name from the URL path
         const pathParts = window.location.pathname.split('/');
         const appName = pathParts[pathParts.length - 2] || "Unknown Module";
         document.getElementById('app-name').innerText = appName.replace(/-/g, ' ').toUpperCase();

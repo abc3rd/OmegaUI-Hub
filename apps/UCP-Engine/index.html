@@ -1,72 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <title>GLYTCH - Sovereign Command Intelligence</title>
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#09090b" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<head>
+    <meta charset="UTF-8">
+    <title>UCP | Command Console</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-      body {
-        margin: 0;
-        background-color: #09090b;
-        color: #f4f4f5;
-        font-family: 'Space Grotesk', sans-serif;
-        overflow-x: hidden;
-        -webkit-tap-highlight-color: transparent;
-        user-select: none;
-      }
-      .font-mono {
-        font-family: 'JetBrains Mono', monospace;
-      }
-      .omega-gradient {
-        background: linear-gradient(135deg, #ea00ea 0%, #2699fe 50%, #4bce2a 100%);
-      }
-      .omega-glow {
-        box-shadow: 0 0 20px rgba(234, 0, 234, 0.2);
-      }
-      ::-webkit-scrollbar {
-        width: 4px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #09090b;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #27272a;
-        border-radius: 2px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #3f3f46;
-      }
-      @keyframes scan {
-        0% { transform: translateY(-100%); }
-        100% { transform: translateY(100%); }
-      }
-      .scanning-line {
-        height: 2px;
-        background: #ea00ea;
-        box-shadow: 0 0 15px #ea00ea;
-        animation: scan 2s linear infinite;
-      }
+        :root { --magenta: #ea00ea; --blue: #2699fe; --dark: #121212; }
+        body { background: var(--dark); color: #00ff00; font-family: 'Courier New', monospace; }
+        .terminal-header { background: var(--magenta); color: white; padding: 5px 15px; font-weight: bold; }
+        .btn-blue { background: var(--blue); color: white; padding: 8px 15px; border-radius: 4px; }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@^1.36.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-  }
-}
-</script>
-<script src='/global-nav.js'></script></head>
-  <body>
-    <div id="root"></div>
-  </body>
+</head>
+<body class="p-4 md:p-10">
+    <div class="max-w-4xl mx-auto border border-white/20 rounded-lg overflow-hidden shadow-2xl">
+        <div class="terminal-header flex justify-between">
+            <span>UNIVERSAL COMMAND PROTOCOL v4.4</span>
+            <span>SYSTEM: ONLINE</span>
+        </div>
+        <div class="p-6 bg-black/80 min-h-[400px]">
+            <div id="output" class="mb-4">
+                <p class="text-white font-bold tracking-widest uppercase mb-2">Initializing Intent Infrastructure...</p>
+                <p>> Loading Python Module: <span id="app-name" style="color:var(--blue)">Scanning...</span></p>
+                <p>> Locating setup.py and requirements.txt...</p>
+                <div id="tech-stack" class="mt-4 p-4 border border-white/10 text-xs text-gray-400">
+                    <p>// Analyzing local repository structure...</p>
+                    <p>// UCP Sovereign Logic: ACTIVE</p>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-white/20 pt-6">
+                <h3 class="text-white font-bold mb-4">SOVEREIGN ACTIONS</h3>
+                <div class="flex gap-4">
+                    <button onclick="alert('Accessing Python Source...')" class="btn-blue text-xs uppercase font-bold">Inspect Source</button>
+                    <button onclick="window.location.href='/dashboard.html'" class="border border-white/30 text-white text-xs px-4 py-2 uppercase">Return to Hub</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const pathParts = window.location.pathname.split('/');
+        const appName = pathParts[pathParts.length - 2] || "Unknown Module";
+        document.getElementById('app-name').innerText = appName.replace(/-/g, ' ').toUpperCase();
+    </script>
+</body>
 </html>
-
