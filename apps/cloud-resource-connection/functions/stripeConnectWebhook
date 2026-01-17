@@ -1,0 +1,188 @@
+
+import { createClientFromRequest } from 'npm:@base44/sdk@0.7.1';
+import Stripe from 'npm:stripe@17.4.0';
+
+async function sendDonationReceipt(base44, donation) {
+    if (!donation.donorEmail) {
+        console.log(`No email for donation ${donation.id}, skipping receipt.`);
+        return;
+    }
+
+    const profiles = await base44.asServiceRole.entities.Profile.filter({ id: donation.profileId });
+    if (!profiles || profiles.length === 0) return;
+    const profile = profiles[0];
+
+    const emailBody = `
+        <div style="font-family: sans-serif; line-height: 1.6;">
+            <h1 style="color: #333;">Thank you for your donation!</h1>
+            <p>Hello ${donation.donorName || 'Donor'},</p>
+            <p>Thank you for your generous donation of <strong>$${donation.grossAmount.toFixed(2)}</strong> to <strong>${profile.publicName}</strong> through Cloud Collect.</p>
+            <p>Your contribution makes a real difference. Here are the details of your transaction:</p>
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="margin-bottom: 8px;"><strong>Recipient:</strong> ${profile.publicName}</li>
+                <li style="margin-bottom: 8px;"><strong>Donation Amount:</strong> $${donation.grossAmount.toFixed(2)}</li>
+                <li style="margin-bottom: 8px;"><strong>Date:</strong> ${new Date(donation.created_date).toLocaleDateString()}</li>
+                <li style="margin-bottom: 8px;"><strong>Donation ID:</strong> ${donation.id}</li>
+            </ul>
+            <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
+            <p style="font-size: 0.9em; color: #555;">
+                <strong>For Your Tax Records:</strong><br />
+                Cloud Collect is a project operated under a registered 501(c)(3) non-profit organization. This contribution is tax-deductible to the extent allowed by law. No goods or services were provided in exchange for this contribution.
+            </p>
+            <p>Thank you again for your support!</p>
+            <p><em>- The Cloud Collect Team</em></p>
+        </div>
+    `;
+
+    try {
+        await base44.asServiceRole.integrations.Core.SendEmail({
+            to: donation.donorEmail,
+            subject: `Your Cloud Collect Donation Receipt to ${profile.publicName}`,
+            body: emailBody
+        });
+        console.log(`Receipt sent for donation ${donation.id}`);
+    } catch (e) {
+        console.error(`Failed to send receipt for donation ${donation.id}:`, e);
+    }
+}
+
+Deno.serve(async (req) => {
+    try {
+        const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY'));
+        const webhookSecret = Deno.env.get('STRIPE_CONNECT_WEBHOOK_SECRET');
+        const base44 = createClientFromRequest(req);
+        
+        const signature = req.headers.get('stripe-signature');
+        const body = await req.text();
+
+        let event;
+        try {
+            event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
+        } catch (err) {
+            console.error('Webhook signature verification failed:', err.message);
+            return Response.json({ error: 'Invalid signature' }, { status: 400 });
+        }
+
+        switch (event.type) {
+            case 'payment_intent.succeeded': {
+                const paymentIntent = event.data.object;
+                
+                const donations = await base44.asServiceRole.entities.Donation.filter({
+                    stripePaymentIntentId: paymentIntent.id
+                });
+
+                if (donations && donations.length > 0) {
+                    const donation = donations[0];
+                    
+                    if (donation.status === 'completed') {
+                        console.log(`Donation ${donation.id} already processed.`);
+                        break;
+                    }
+
+                    await base44.asServiceRole.entities.Donation.update(donation.id, {
+                        status: 'completed'
+                    });
+
+                    // Update profile totals
+                    const profiles = await base44.asServiceRole.entities.Profile.filter({
+                        id: donation.profileId
+                    });
+
+                    if (profiles && profiles.length > 0) {
+                        const profile = profiles[0];
+                        await base44.asServiceRole.entities.Profile.update(profile.id, {
+                            totalRaised: (profile.totalRaised || 0) + donation.grossAmount
+                        });
+                    }
+                    
+                    // If it was for a wishlist item, update it
+                    if (donation.wishlistItemId) {
+                        const wishlistItems = await base44.asServiceRole.entities.WishlistItem.filter({ id: donation.wishlistItemId });
+                        if (wishlistItems.length > 0) {
+                             await base44.asServiceRole.entities.WishlistItem.update(donation.wishlistItemId, {
+                                status: 'funded'
+                            });
+                        }
+                    }
+
+                    // Send receipt
+                    await sendDonationReceipt(base44, donation);
+                }
+                break;
+            }
+
+            case 'payment_intent.payment_failed': {
+                const paymentIntent = event.data.object;
+                
+                const donations = await base44.asServiceRole.entities.Donation.filter({
+                    stripePaymentIntentId: paymentIntent.id
+                });
+
+                if (donations && donations.length > 0) {
+                    await base44.asServiceRole.entities.Donation.update(donations[0].id, {
+                        status: 'failed'
+                    });
+                }
+                break;
+            }
+
+            case 'account.updated': {
+                const account = event.data.object;
+                const profiles = await base44.asServiceRole.entities.Profile.filter({
+                    stripeConnectedAccountId: account.id
+                });
+
+                if (profiles && profiles.length > 0) {
+                    const profile = profiles[0];
+                    // Determine new status: verified if charges enabled, pending if requirements due, else rejected
+                    const newStatus = account.charges_enabled ? 'verified' : (account.requirements?.currently_due.length > 0 ? 'pending' : 'rejected');
+                    
+                    if (profile.stripeAccountStatus !== newStatus) {
+                         await base44.asServiceRole.entities.Profile.update(profile.id, {
+                            stripeAccountStatus: newStatus
+                        });
+                    }
+                }
+                break;
+            }
+
+            case 'payout.paid':
+            case 'payout.failed':
+            case 'payout.canceled': {
+                const payout = event.data.object;
+                
+                const payouts = await base44.asServiceRole.entities.Payout.filter({
+                    stripePayoutId: payout.id
+                });
+
+                if (payouts && payouts.length > 0) {
+                    const statusMap = {
+                        'payout.paid': 'paid',
+                        'payout.failed': 'failed',
+                        'payout.canceled': 'canceled'
+                    };
+
+                    const updateData = { status: statusMap[event.type] };
+                    if (payout.failure_message) {
+                        updateData.failureReason = payout.failure_message;
+                    }
+
+                    await base44.asServiceRole.entities.Payout.update(payouts[0].id, updateData);
+                }
+                break;
+            }
+
+            default:
+                // console.log(`Unhandled event type: ${event.type}`);
+        }
+
+        return Response.json({ received: true });
+
+    } catch (error) {
+        console.error('Webhook error:', error);
+        return Response.json({ 
+            error: 'Webhook processing failed',
+            details: error.message 
+        }, { status: 500 });
+    }
+});

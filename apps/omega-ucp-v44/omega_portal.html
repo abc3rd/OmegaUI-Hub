@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynCloud Connect | Omega UI, LLC</title>
+    <style>
+        :root {
+            --purple: #ea00ea;
+            --blue: #2699fe;
+            --green: #4bce2a;
+            --dark: #3c3c3c;
+            --accent: #c4653a;
+            --black: #1a1a1a;
+        }
+        body {
+            background-color: var(--black);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            width: 100%;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 2px solid var(--purple);
+            background: linear-gradient(180deg, #252525 0%, var(--black) 100%);
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .logo span:nth-child(1) { color: var(--purple); }
+        .logo span:nth-child(2) { color: var(--blue); }
+        .container {
+            max-width: 1200px;
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: var(--dark);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, border 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border: 1px solid var(--blue);
+        }
+        .card h3 { margin-top: 0; color: var(--green); }
+        .card p { font-size: 0.9rem; color: #ccc; line-height: 1.5; }
+        .ucp-bar {
+            background: #252525;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            margin-top: 20px;
+            border-left: 5px solid var(--purple);
+            font-family: monospace;
+            word-break: break-all;
+        }
+        .footer {
+            margin-top: 50px;
+            padding: 30px;
+            font-size: 0.8rem;
+            color: #777;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><span>OMEGA</span> <span>UI</span></div>
+        <p>Universal Command Protocol & Enterprise CRM Solutions</p>
+    </header>
+
+    <div class="ucp-bar">
+        <span style="color: var(--green)"># Quick Install:</span><br>
+        curl -sSL https://syncloudconnect.com/tools/syncloud_ucp_installer.py | python3 -
+    </div>
+
+    <div class="container">
+        <a href="https://glytch.cloud" class="card"><h3>GLYTCH</h3><p>Next-gen operating infrastructure and automated systems.</p></a>
+        <a href="#" class="card"><h3>Cloud Connect</h3><p>Enterprise API bridging and seamless cloud synchronization.</p></a>
+        <a href="#" class="card"><h3>Legendary Leads</h3><p>High-conversion lead generation and management platform.</p></a>
+        <a href="#" class="card"><h3>LegenDatabase</h3><p>Robust data storage and relational intelligence engine.</p></a>
+        <a href="#" class="card"><h3>Cloud Collect</h3><p>Automated payment processing and financial asset management.</p></a>
+        <a href="#" class="card"><h3>Face 2 Face</h3><p>Interactive communication tools for personalized client engagement.</p></a>
+        <a href="https://abcdashboard.com" class="card"><h3>ABC Dashboard</h3><p>Unified analytics and command center for your entire business stack.</p></a>
+        <a href="#" class="card"><h3>SynCloud</h3><p>The core intelligence hub powering SynCloud Connect.</p></a>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Omega UI, LLC | 2744 Edison Avenue, Unit-7, Suite C-3, Fort Myers, FL 33916<br>
+        Phone: +1 239-247-6030 | Built on Go High Level CRM
+    </div>
+</body>
+</html>

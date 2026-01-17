@@ -1,0 +1,8 @@
+{
+  "name": "omega-ui-central-hub",
+  "description": "Unified repository for Omega UI, LLC entities",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ]
+}

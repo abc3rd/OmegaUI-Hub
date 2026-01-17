@@ -1,0 +1,110 @@
+cd ~/syncloud-ucp
+
+# Pull remote state to ensure alignment
+git pull --rebase origin main
+
+# Create the merged, organized ucp.html
+cat << 'EOF' > ucp.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCP | Omega UI Sovereign Protocol</title>
+    <script src="https://syncloudconnect.org/assets/js/qrcode.min.js"></script>
+    <style>
+        :root {
+            --magenta: #ea00ea; --blue: #2699fe; --green: #4bce2a;
+            --dark: #3c3c3c; --orange: #c4653a; --bg: #0d0d0d;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #f0f0f0; margin: 0; }
+        .nav { background: #000; padding: 20px; border-bottom: 2px solid var(--magenta); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .nav h1 { color: var(--magenta); margin: 0; font-size: 1.5rem; letter-spacing: 2px; }
+        .hero { padding: 60px 20px; text-align: center; background: linear-gradient(180deg, #1a1a1a 0%, var(--bg) 100%); border-bottom: 1px solid #333; }
+        .hero h2 { color: var(--blue); font-size: 2.5rem; margin-bottom: 10px; }
+        .container { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
+        .cat-group { margin-bottom: 50px; }
+        .cat-header { color: var(--green); border-left: 4px solid var(--green); padding-left: 15px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--dark); border: 1px solid #444; border-radius: 10px; padding: 20px; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+        .card:hover { border-color: var(--magenta); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .card h3 { color: #fff; margin: 0 0 10px 0; }
+        .card p { font-size: 0.85rem; color: #ccc; line-height: 1.5; margin-bottom: 20px; }
+        .btn { display: block; padding: 10px; border: 1px solid var(--blue); color: var(--blue); text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .btn:hover { background: var(--blue); color: #fff; }
+        .btn.special { border-color: var(--magenta); color: var(--magenta); }
+        .btn.special:hover { background: var(--magenta); color: #fff; }
+        #qr-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:2000; flex-direction:column; align-items:center; justify-content:center; }
+        #qrcode { background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 0 40px var(--magenta); }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <h1>OMEGA UI / UCP</h1>
+        <div style="color:var(--green); font-size:0.8rem;">SOVEREIGN UNIT: EA-7-C3</div>
+    </div>
+
+    <div class="hero">
+        <h2>Universal Command Protocol</h2>
+        <p>Patented Energy-Optimized AI Infrastructure & Multi-Cloud Connectivity</p>
+        <div style="margin-top:30px;">
+            <a href="https://syncloudconnect.org" class="btn special" style="display:inline-block; padding: 15px 30px;">Visit SynCloudConnect.org</a>
+        </div>
+    </div>
+
+    <div class="container" id="app-root">
+        </div>
+
+    <div id="qr-overlay" onclick="this.style.display='none'">
+        <div id="qrcode"></div>
+        <p style="color:var(--magenta); margin-top:25px; font-weight:bold;">SCAN FOR UCP EXECUTION</p>
+    </div>
+
+    <script>
+        const appData = [
+            { name: "UCP Runner", cat: "Protocol Demos", url: "https://ucp-runner.omegaui.com/", desc: "Deterministic command-pack runner for UCP packets. Execute pre-compiled commands securely." },
+            { name: "SynCloud Connect", cat: "Core Infrastructure", url: "https://syncloudconnect.org", desc: "The central intelligence hub and primary landing for the Omega UI sovereign network." },
+            { name: "OMEGA UCP", cat: "Core Infrastructure", url: "https://omega-ucp.omegaui.com", desc: "Simulation and optimization for AI command processing." },
+            { name: "Cloud QR", cat: "Identity & Social", url: "https://cloud-qr.omegaui.com", desc: "Deterministic execution from QR-embedded packets ($0.0001 kWh)." },
+            { name: "ABC Dashboard", cat: "Business Solutions", url: "https://abcdashboard.com", desc: "Unified analytics and command center for the business stack." },
+            { name: "FACE-2-FACE", cat: "Identity & Social", url: "https://face2face.omegaui.com", desc: "Revolutionary networking prioritizing genuine in-person connections." },
+            { name: "Cloud Stream", cat: "Utilities", url: "https://cloud-stream.omegaui.com", desc: "Cloud camera control for simultaneous network streaming." }
+            // Dynamic logic will handle the full 63-app list here
+        ];
+
+        const root = document.getElementById('app-root');
+        const groups = [...new Set(appData.map(a => a.cat))];
+
+        groups.forEach(g => {
+            const section = document.createElement('div');
+            section.className = 'cat-group';
+            section.innerHTML = `<h2 class="cat-header">${g}</h2><div class="grid" id="g-${g.replace(/\s/g, '')}"></div>`;
+            root.appendChild(section);
+
+            appData.filter(a => a.cat === g).forEach(app => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `<h3>${app.name}</h3><p>${app.desc}</p><a href="#" class="btn" onclick="genQR('${app.name}', '${app.url}')">Launch UCP</a>`;
+                document.getElementById(`g-${g.replace(/\s/g, '')}`).appendChild(card);
+            });
+        });
+
+        function genQR(n, u) {
+            document.getElementById('qr-overlay').style.display = 'flex';
+            document.getElementById('qrcode').innerHTML = '';
+            new QRCode(document.getElementById("qrcode"), {
+                text: `UCP|${n}|${u}|EA-7-C3`,
+                width: 256, height: 256,
+                colorDark : "#3c3c3c", colorLight : "#ffffff"
+            });
+        }
+    </script>
+</body>
+</html>
+EOF
+
+# Commit and Push
+git add ucp.html
+git commit -m "V44_SOVEREIGN: Merged SynCloudConnect and UCP-Runner into Organized Hub"
+git push origin main

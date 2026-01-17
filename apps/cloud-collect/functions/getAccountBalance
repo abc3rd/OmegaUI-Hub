@@ -1,0 +1,65 @@
+import { createClientFromRequest } from 'npm:@base44/sdk@0.7.1';
+import Stripe from 'npm:stripe@17.4.0';
+
+Deno.serve(async (req) => {
+    try {
+        const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY'));
+        const base44 = createClientFromRequest(req);
+        const user = await base44.auth.me();
+
+        if (!user) {
+            return Response.json({ error: 'Unauthorized' }, { status: 401 });
+        }
+
+        const { profileId } = await req.json();
+
+        // Get profile
+        const profiles = await base44.entities.Profile.filter({ 
+            id: profileId,
+            created_by: user.email 
+        });
+
+        if (!profiles || profiles.length === 0) {
+            return Response.json({ error: 'Profile not found' }, { status: 404 });
+        }
+
+        const profile = profiles[0];
+
+        if (!profile.stripeConnectedAccountId) {
+            return Response.json({ 
+                available: 0,
+                pending: 0
+            });
+        }
+
+        // Get account and balance
+        const account = await stripe.accounts.retrieve(profile.stripeConnectedAccountId);
+        const balance = await stripe.balance.retrieve({
+            stripeAccount: profile.stripeConnectedAccountId
+        });
+
+        // Update profile with current balance
+        const available = balance.available[0]?.amount || 0;
+        const pending = balance.pending[0]?.amount || 0;
+
+        await base44.entities.Profile.update(profileId, {
+            availableBalance: available / 100, // Convert from cents to dollars
+            pendingBalance: pending / 100,
+            stripeAccountStatus: account.charges_enabled ? 'verified' : 'pending'
+        });
+
+        return Response.json({ 
+            available: available / 100,
+            pending: pending / 100,
+            accountStatus: account.charges_enabled ? 'verified' : 'pending',
+            payoutsEnabled: account.payouts_enabled
+        });
+
+    } catch (error) {
+        console.error('Get balance error:', error);
+        return Response.json({ 
+            error: 'Failed to get balance',
+            details: error.message 
+        }, { status: 500 });
+    }
+});

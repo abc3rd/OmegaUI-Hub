@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omega UI | SynCloud Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --magenta: #ea00ea; --blue: #2699fe; --dark: #121212; }
+        body { background: var(--dark); color: white; font-family: sans-serif; }
+        .hero-glow { background: radial-gradient(circle at center, rgba(234, 0, 234, 0.1) 0%, transparent 80%); }
+        .btn-tech { border: 1px solid var(--blue); transition: 0.4s; }
+        .btn-tech:hover { background: var(--magenta); border-color: var(--magenta); box-shadow: 0 0 20px var(--magenta); }
+    </style>
+</head>
+<body class="hero-glow min-h-screen flex flex-col items-center justify-center p-6">
+    <header class="text-center mb-12">
+        <h1 class="text-2xl font-black italic mb-2" style="color: var(--magenta)">OMEGA UI, LLC</h1>
+        <p class="text-gray-500 font-mono text-sm uppercase tracking-widest">Fort Myers // +1 239-247-6030</p>
+    </header>
+
+    <div class="max-w-3xl text-center">
+        <h2 class="text-6xl font-black mb-6 tracking-tighter uppercase">SynCloud <span style="color: var(--blue)">Connect</span></h2>
+        <p class="text-lg text-gray-400 mb-10 leading-relaxed">
+            The central landing hub for all **Omega UI, LLC** traffic. 
+            Utilizing the Universal Command Protocol (UCP) to streamline enterprise AI infrastructure.
+        </p>
+        
+        <a href="dashboard.html" class="btn-tech px-12 py-5 font-black tracking-widest uppercase inline-block">
+            Initialize Command Center
+        </a>
+    </div>
+
+    <footer class="mt-20 text-[10px] text-gray-600 font-mono text-center">
+        2744 EDISON AVENUE, UNIT-7, SUITE C-3, FORT MYERS, FL. 33916<br>
+        © 2026 OMEGA UI, LLC // ALL SYSTEMS OPERATIONAL
+    </footer>
+</body>
+</html>

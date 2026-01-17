@@ -1,0 +1,25 @@
+# Virtual env
+venv/
+__pycache__/
+
+# Logs and output
+*.log
+nohup.out
+
+# Secrets and configs
+.env
+*.json
+*.pem
+*.sqlite3
+*.tar.gz
+*.zip
+*.db
+
+# System
+.DS_Store
+*Zone.Identifier
+venv/
+__pycache__/
+*.pyc
+*.log
+.DS_Store

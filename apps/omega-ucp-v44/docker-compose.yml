@@ -1,0 +1,10 @@
+services:
+  ucp-hub:
+    image: abc3rd/omegaui-ucp-hub:v1.0.0
+    container_name: syncloud-ucp-production
+    ports:
+      - "8000:80"
+    restart: always
+    environment:
+      - VIRTUAL_HOST=syncloudconnect.com
+      - LETSENCRYPT_HOST=syncloudconnect.com

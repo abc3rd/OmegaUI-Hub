@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UCP | SynCloud Connect Sovereign Protocol</title>
+    <script src="https://syncloudconnect.org/assets/js/qrcode.min.js"></script>
+    <style>
+        :root { --magenta: #ea00ea; --blue: #2699fe; --green: #4bce2a; --dark: #3c3c3c; --bg: #0d0d0d; }
+        body { font-family: sans-serif; background: var(--bg); color: #fff; margin: 0; padding: 20px; }
+        .nav { border-bottom: 2px solid var(--magenta); padding: 10px; display: flex; justify-content: space-between; }
+        .cat-box { margin-top: 40px; }
+        .cat-header { color: var(--blue); border-left: 4px solid var(--blue); padding-left: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--dark); padding: 20px; border-radius: 8px; border: 1px solid #444; }
+        .btn { display: block; margin-top: 15px; padding: 10px; border: 1px solid var(--blue); color: var(--blue); text-align: center; text-decoration: none; border-radius: 4px; }
+        #qr-modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; flex-direction:column; align-items:center; justify-content:center; }
+        #qrcode { background: #fff; padding: 20px; border-radius: 10px; }
+    </style>
+</head>
+<body><div class="sovereign-nav" style="background:#000; border-bottom:1px solid #333; padding:10px; display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"> 
+<a href="https://landing.syncloudconnect.com" style="color:#2699fe; text-decoration:none; font-size:0.8rem; font-weight:bold;">LANDING</a> 
+<a href="https://ucp-runner.omegaui.com/" style="color:#ea00ea; text-decoration:none; font-size:0.8rem; font-weight:bold;">UCP RUNNER</a> 
+<a href="https://syncloudconnect.com/" style="color:#2699fe; text-decoration:none; font-size:0.8rem; font-weight:bold;">SYNCLOUD CORE</a> 
+<a href="https://glytch-ui.omegaui.com" style="color:#4bce2a; text-decoration:none; font-size:0.8rem; font-weight:bold;">GLYTCH UI</a> 
+</div>
+    <div class="nav">
+        <h1 style="color:var(--magenta); margin:0;">SynCloud Connect UCP</h1>
+        <span>NODE: EA-UNIT-7-C3</span>
+    </div>
+    <div id="hub-content"></div>
+    <div id="qr-modal" onclick="this.style.display='none'">
+        <div id="qrcode"></div>
+        <p style="color:var(--magenta); margin-top:20px;">UCP Visual Transport Active</p>
+    </div>
+    <script>
+        const apps = [
+            { name: "SynCloud Connect", cat: "Core Infrastructure", url: "https://syncloudconnect.org", desc: "Centralized intelligence hub." },
+            { name: "UCP Runner", cat: "Core Infrastructure", url: "https://ucp-runner.omegaui.com/", desc: "Deterministic command execution." },
+            { name: "ABC Dashboard", cat: "Business & CRM", url: "https://abcdashboard.com", desc: "Unified analytics." }
+            // Dynamic logic maps remaining spreadsheet apps
+        ];
+        const hub = document.getElementById('hub-content');
+        const groups = [...new Set(apps.map(a => a.cat))];
+        groups.forEach(g => {
+            const section = document.createElement('div');
+            section.className = 'cat-box';
+            section.innerHTML = `<h2 class="cat-header">${g}</h2><div class="grid" id="g-${g.replace(/\s/g, '')}"></div>`;
+            hub.appendChild(section);
+            apps.filter(a => a.cat === g).forEach(app => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `<h3>${app.name}</h3><p>${app.desc}</p><a href="#" class="btn" onclick="openQR('${app.name}', '${app.url}')">Launch</a>`;
+                document.getElementById(`g-${g.replace(/\s/g, '')}`).appendChild(card);
+            });
+        });
+        function openQR(n, u) {
+            document.getElementById('qr-modal').style.display = 'flex';
+            document.getElementById('qrcode').innerHTML = '';
+            new QRCode(document.getElementById("qrcode"), { text: `UCP|${n}|${u}`, width: 256, height: 256 });
+        }
+    </script>
+</body>
+</html>

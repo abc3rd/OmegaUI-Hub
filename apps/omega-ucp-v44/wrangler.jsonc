@@ -1,0 +1,8 @@
+{
+  "name": "syncloud-ucp",
+  "compatibility_date": "2026-01-13",
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS"
+  }
+}

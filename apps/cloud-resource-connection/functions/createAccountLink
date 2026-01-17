@@ -1,0 +1,51 @@
+import { createClientFromRequest } from 'npm:@base44/sdk@0.7.1';
+import Stripe from 'npm:stripe@17.4.0';
+
+Deno.serve(async (req) => {
+    try {
+        const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY'));
+        const base44 = createClientFromRequest(req);
+        const user = await base44.auth.me();
+
+        if (!user) {
+            return Response.json({ error: 'Unauthorized' }, { status: 401 });
+        }
+
+        const { profileId } = await req.json();
+
+        // Get profile
+        const profiles = await base44.entities.Profile.filter({ 
+            id: profileId,
+            created_by: user.email 
+        });
+
+        if (!profiles || profiles.length === 0) {
+            return Response.json({ error: 'Profile not found' }, { status: 404 });
+        }
+
+        const profile = profiles[0];
+
+        if (!profile.stripeConnectedAccountId) {
+            return Response.json({ error: 'No connected account found' }, { status: 400 });
+        }
+
+        // Create account link for onboarding
+        const accountLink = await stripe.accountLinks.create({
+            account: profile.stripeConnectedAccountId,
+            refresh_url: `${req.headers.get('origin')}/dashboard?refresh=true`,
+            return_url: `${req.headers.get('origin')}/dashboard?onboarding=complete`,
+            type: 'account_onboarding',
+        });
+
+        return Response.json({ 
+            url: accountLink.url
+        });
+
+    } catch (error) {
+        console.error('Create account link error:', error);
+        return Response.json({ 
+            error: 'Failed to create account link',
+            details: error.message 
+        }, { status: 500 });
+    }
+});
