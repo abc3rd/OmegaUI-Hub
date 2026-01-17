@@ -3,964 +3,447 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SynCloud Connect | Command Center</title>
+    <title>Omega UI | Command Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --magenta: #ea00ea; --blue: #2699fe; --green: #4bce2a; --dark: #1a1a1a; --card: #262626; }
-        body { background-color: var(--dark); color: #fff; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
-        .grid-bg { background-image: linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px); background-size: 40px 40px; }
-        .glass-card { background: rgba(38, 38, 38, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .glass-card:hover { border-color: var(--magenta); box-shadow: 0 0 30px rgba(234, 0, 234, 0.2); transform: scale(1.02); }
-        .search-bar { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--blue); }
-        .glow-text { text-shadow: 0 0 10px var(--magenta); }
-        .launch-btn { background: linear-gradient(90deg, var(--blue), #1a73e8); }
-        .launch-btn:hover { background: var(--magenta); }
+        :root { --magenta: #ea00ea; --blue: #2699fe; --dark: #121212; }
+        body { background: var(--dark); color: white; font-family: sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.3s; }
+        .glass-card:hover { border-color: var(--magenta); transform: translateY(-5px); }
     </style>
 </head>
-<body class="grid-bg min-h-screen">
-    <div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-[#ea00ea1a] to-transparent pointer-events-none"></div>
+<body class="p-8">
+    <script src="/global-nav.js"></script>
+    
+    <header class="max-w-7xl mx-auto mb-12">
+        <h1 class="text-4xl font-black" style="color: var(--magenta)">COMMAND CENTER</h1>
+        <input type="text" id="search" placeholder="Filter 83 Apps..." class="w-full mt-6 p-4 bg-white/5 border border-blue-500 text-white outline-none">
+    </header>
 
-    <div class="relative z-10 p-6 lg:p-12">
-        <header class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div>
-                <h1 class="text-6xl font-black tracking-tighter glow-text" style="color: var(--magenta)">OMEGA UI</h1>
-                <p class="text-blue-400 font-mono tracking-widest uppercase text-sm mt-2">SynCloud Connect // Neural Network Hub</p>
+    <main id="grid" class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">ai tools</h3>
+                <a href="/apps/ai-tools/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
             </div>
-            <div class="w-full md:w-96">
-                <input type="text" id="appSearch" placeholder="SEARCH REPOSITORY CLUSTER..." 
-                       class="w-full p-4 rounded-none search-bar text-white font-mono focus:outline-none focus:ring-2 focus:ring-magenta-500">
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud 64 craft</h3>
+                <a href="/apps/cloud-64-craft/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
             </div>
-        </header>
-
-        <main id="appGrid" class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: BIS2SN</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">ai tools</h2>
-                    </div>
-                    <a href="./apps/ai-tools/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: JYOXLZ</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud 64 craft</h2>
-                    </div>
-                    <a href="./apps/cloud-64-craft/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 3VU0YE</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud biztrack</h2>
-                    </div>
-                    <a href="./apps/cloud-biztrack/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: I1RB6R</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud champions</h2>
-                    </div>
-                    <a href="./apps/cloud-champions/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 9TIIWY</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud chess</h2>
-                    </div>
-                    <a href="./apps/cloud-chess/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: KEZEM1</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud cipherchat</h2>
-                    </div>
-                    <a href="./apps/cloud-cipherchat/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: SQF99K</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud claims collector</h2>
-                    </div>
-                    <a href="./apps/cloud-claims-collector/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: M1OIWB</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud code</h2>
-                    </div>
-                    <a href="./apps/cloud-code/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: YDFDWT</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud collect</h2>
-                    </div>
-                    <a href="./apps/cloud-collect/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: FTK6YN</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud connect</h2>
-                    </div>
-                    <a href="./apps/cloud-connect/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 960HCE</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud connect aios</h2>
-                    </div>
-                    <a href="./apps/cloud-connect-aios/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: Q2W2B5</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud connect glytc h webui</h2>
-                    </div>
-                    <a href="./apps/cloud-connect-glytc-h-webui/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: OQYK7K</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud counter</h2>
-                    </div>
-                    <a href="./apps/cloud-counter/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: V3JOFK</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud crypto</h2>
-                    </div>
-                    <a href="./apps/cloud-crypto/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: E4526I</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud dataflow</h2>
-                    </div>
-                    <a href="./apps/cloud-dataflow/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: U0EJ52</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud ecotrack</h2>
-                    </div>
-                    <a href="./apps/cloud-ecotrack/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: V0QUGQ</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud forms</h2>
-                    </div>
-                    <a href="./apps/cloud-forms/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: EFCT8S</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud gourmet</h2>
-                    </div>
-                    <a href="./apps/cloud-gourmet/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 68FB5Z</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud hub</h2>
-                    </div>
-                    <a href="./apps/cloud-hub/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: EWJVBJ</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud infinigraph</h2>
-                    </div>
-                    <a href="./apps/cloud-infinigraph/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: LXZUXG</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud legacy echo</h2>
-                    </div>
-                    <a href="./apps/cloud-legacy-echo/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: D5JCIJ</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud legalcase pro</h2>
-                    </div>
-                    <a href="./apps/cloud-legalcase-pro/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: MFHSLZ</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud mailer</h2>
-                    </div>
-                    <a href="./apps/cloud-mailer/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: LUB1U4</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud ranking</h2>
-                    </div>
-                    <a href="./apps/cloud-ranking/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 2PCT4J</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud resource connection</h2>
-                    </div>
-                    <a href="./apps/cloud-resource-connection/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 1NO0X4</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud social hub</h2>
-                    </div>
-                    <a href="./apps/cloud-social-hub/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 60G6TV</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud spend</h2>
-                    </div>
-                    <a href="./apps/cloud-spend/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: OIU9ZH</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud stocktrackpro</h2>
-                    </div>
-                    <a href="./apps/cloud-stocktrackpro/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: C5ALKJ</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud stream</h2>
-                    </div>
-                    <a href="./apps/cloud-stream/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: IW3H7Q</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">Cloud Synergy</h2>
-                    </div>
-                    <a href="./apps/Cloud-Synergy/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: IP1HGW</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud task</h2>
-                    </div>
-                    <a href="./apps/cloud-task/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 02FVKJ</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud timeline</h2>
-                    </div>
-                    <a href="./apps/cloud-timeline/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: L81B87</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud ucp protocol</h2>
-                    </div>
-                    <a href="./apps/cloud-ucp-protocol/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: U07TMY</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cloud wednesday</h2>
-                    </div>
-                    <a href="./apps/cloud-wednesday/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 740ZQB</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">codesynth</h2>
-                    </div>
-                    <a href="./apps/codesynth/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: HGP0I3</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">community resource map</h2>
-                    </div>
-                    <a href="./apps/community-resource-map/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: HU5IHO</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">cronmate</h2>
-                    </div>
-                    <a href="./apps/cronmate/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 7GUUFT</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">CURR_E</h2>
-                    </div>
-                    <a href="./apps/CURR_E/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: ZLUVO5</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">face 2 face</h2>
-                    </div>
-                    <a href="./apps/face-2-face/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: V8W13M</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">glytch aios</h2>
-                    </div>
-                    <a href="./apps/glytch-aios/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 6F27K6</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">glytch backend</h2>
-                    </div>
-                    <a href="./apps/glytch-backend/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: ETJKM7</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">glytch gpt</h2>
-                    </div>
-                    <a href="./apps/glytch-gpt/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: BS5C7H</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">glytch suite</h2>
-                    </div>
-                    <a href="./apps/glytch-suite/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: B6JNI5</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">glytch ui</h2>
-                    </div>
-                    <a href="./apps/glytch-ui/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: N1DMVJ</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">glytch_backups</h2>
-                    </div>
-                    <a href="./apps/glytch_backups/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 3T5TAA</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">Hello World</h2>
-                    </div>
-                    <a href="./apps/Hello-World/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: XDGYAH</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">iwitness</h2>
-                    </div>
-                    <a href="./apps/iwitness/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: LW1JL9</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">iwitness accident documentation assistance</h2>
-                    </div>
-                    <a href="./apps/iwitness-accident-documentation-assistance/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 57EHSP</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">iwitness android</h2>
-                    </div>
-                    <a href="./apps/iwitness-android/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 8F8XDB</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">legendary backend</h2>
-                    </div>
-                    <a href="./apps/legendary-backend/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 5EM7IR</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">legendary frontend</h2>
-                    </div>
-                    <a href="./apps/legendary-frontend/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: CPL3IT</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">legendary leads</h2>
-                    </div>
-                    <a href="./apps/legendary-leads/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 93XT7E</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">legend_platform</h2>
-                    </div>
-                    <a href="./apps/legend_platform/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: QXCYO5</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">legend_stack</h2>
-                    </div>
-                    <a href="./apps/legend_stack/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: V2QEIF</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">linklocker</h2>
-                    </div>
-                    <a href="./apps/linklocker/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 1VDJZ0</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">loud ghl manager</h2>
-                    </div>
-                    <a href="./apps/loud-ghl-manager/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: Y9DNHP</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">murphy law</h2>
-                    </div>
-                    <a href="./apps/murphy-law/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 5MU1GG</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">nextjs</h2>
-                    </div>
-                    <a href="./apps/nextjs/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 0M3LVN</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">nextjs ai chatbot</h2>
-                    </div>
-                    <a href="./apps/nextjs-ai-chatbot/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: I7X543</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">omega helpdesk</h2>
-                    </div>
-                    <a href="./apps/omega-helpdesk/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: R03XTB</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">omega ucp</h2>
-                    </div>
-                    <a href="./apps/omega-ucp/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: WOEYXL</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">omega ucp v44</h2>
-                    </div>
-                    <a href="./apps/omega-ucp-v44/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: NFIL3Q</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">omega ui</h2>
-                    </div>
-                    <a href="./apps/omega-ui/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 4H7ZQ5</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">syncloud aios by omega ui</h2>
-                    </div>
-                    <a href="./apps/syncloud-aios-by-omega-ui/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: GWLTKK</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">syncloud arc</h2>
-                    </div>
-                    <a href="./apps/syncloud-arc/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: K0GUG7</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">syncloud collection</h2>
-                    </div>
-                    <a href="./apps/syncloud-collection/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: WMMMET</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">syncloud connect</h2>
-                    </div>
-                    <a href="./apps/syncloud-connect/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: BFNHD7</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">syncloud connect 44</h2>
-                    </div>
-                    <a href="./apps/syncloud-connect-44/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: SR4KKD</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">syncloud orchestrator</h2>
-                    </div>
-                    <a href="./apps/syncloud-orchestrator/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: YAXG7U</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">SynCloud_Connect</h2>
-                    </div>
-                    <a href="./apps/SynCloud_Connect/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: TYVX80</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">synconnect sphere</h2>
-                    </div>
-                    <a href="./apps/synconnect-sphere/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: H65Y28</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">synergy toolkit</h2>
-                    </div>
-                    <a href="./apps/synergy-toolkit/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: I2L8F7</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">ucp ai router</h2>
-                    </div>
-                    <a href="./apps/ucp-ai-router/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 6W7TL2</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">ucp command studio</h2>
-                    </div>
-                    <a href="./apps/ucp-command-studio/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: JLZ4L9</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">ucp efficient ai informative</h2>
-                    </div>
-                    <a href="./apps/ucp-efficient-ai-informative/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: BYG76R</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">UCP Engine</h2>
-                    </div>
-                    <a href="./apps/UCP-Engine/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 2GNKJU</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">ucp gpu efficiency demo</h2>
-                    </div>
-                    <a href="./apps/ucp-gpu-efficiency-demo/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: XS4T74</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">ucp granite demo tool</h2>
-                    </div>
-                    <a href="./apps/ucp-granite-demo-tool/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: 33MW6A</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">ucp interpreter console</h2>
-                    </div>
-                    <a href="./apps/ucp-interpreter-console/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: ARQ5A7</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">ucp runner</h2>
-                    </div>
-                    <a href="./apps/ucp-runner/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: QYNC03</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">ucp universal command protocol</h2>
-                    </div>
-                    <a href="./apps/ucp-universal-command-protocol/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: W8MFQE</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">ucrash claims</h2>
-                    </div>
-                    <a href="./apps/ucrash-claims/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-                <div class="glass-card p-6 rounded-sm flex flex-col justify-between h-48 group">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-mono text-green-400">ID: HQGPHM</span>
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        </div>
-                        <h2 class="text-xl font-bold tracking-tight text-white group-hover:text-[#ea00ea] transition-colors">workspace hub</h2>
-                    </div>
-                    <a href="./apps/workspace-hub/index.html" class="launch-btn w-full py-2 text-center text-xs font-black tracking-widest transition-all">TERMINAL_LAUNCH</a>
-                </div>
-            
-        </main>
-    </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud biztrack</h3>
+                <a href="/apps/cloud-biztrack/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud champions</h3>
+                <a href="/apps/cloud-champions/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud chess</h3>
+                <a href="/apps/cloud-chess/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud cipherchat</h3>
+                <a href="/apps/cloud-cipherchat/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud claims collector</h3>
+                <a href="/apps/cloud-claims-collector/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud code</h3>
+                <a href="/apps/cloud-code/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud collect</h3>
+                <a href="/apps/cloud-collect/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud connect</h3>
+                <a href="/apps/cloud-connect/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud connect aios</h3>
+                <a href="/apps/cloud-connect-aios/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud connect glytc h webui</h3>
+                <a href="/apps/cloud-connect-glytc-h-webui/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud counter</h3>
+                <a href="/apps/cloud-counter/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud crypto</h3>
+                <a href="/apps/cloud-crypto/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud dataflow</h3>
+                <a href="/apps/cloud-dataflow/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud ecotrack</h3>
+                <a href="/apps/cloud-ecotrack/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud forms</h3>
+                <a href="/apps/cloud-forms/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud gourmet</h3>
+                <a href="/apps/cloud-gourmet/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud hub</h3>
+                <a href="/apps/cloud-hub/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud infinigraph</h3>
+                <a href="/apps/cloud-infinigraph/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud legacy echo</h3>
+                <a href="/apps/cloud-legacy-echo/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud legalcase pro</h3>
+                <a href="/apps/cloud-legalcase-pro/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud mailer</h3>
+                <a href="/apps/cloud-mailer/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud ranking</h3>
+                <a href="/apps/cloud-ranking/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud resource connection</h3>
+                <a href="/apps/cloud-resource-connection/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud social hub</h3>
+                <a href="/apps/cloud-social-hub/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud spend</h3>
+                <a href="/apps/cloud-spend/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud stocktrackpro</h3>
+                <a href="/apps/cloud-stocktrackpro/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud stream</h3>
+                <a href="/apps/cloud-stream/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">Cloud Synergy</h3>
+                <a href="/apps/Cloud-Synergy/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud task</h3>
+                <a href="/apps/cloud-task/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud timeline</h3>
+                <a href="/apps/cloud-timeline/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud ucp protocol</h3>
+                <a href="/apps/cloud-ucp-protocol/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cloud wednesday</h3>
+                <a href="/apps/cloud-wednesday/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">codesynth</h3>
+                <a href="/apps/codesynth/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">community resource map</h3>
+                <a href="/apps/community-resource-map/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">cronmate</h3>
+                <a href="/apps/cronmate/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">CURR_E</h3>
+                <a href="/apps/CURR_E/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">face 2 face</h3>
+                <a href="/apps/face-2-face/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">glytch aios</h3>
+                <a href="/apps/glytch-aios/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">glytch backend</h3>
+                <a href="/apps/glytch-backend/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">glytch gpt</h3>
+                <a href="/apps/glytch-gpt/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">glytch suite</h3>
+                <a href="/apps/glytch-suite/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">glytch ui</h3>
+                <a href="/apps/glytch-ui/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">glytch_backups</h3>
+                <a href="/apps/glytch_backups/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">Hello World</h3>
+                <a href="/apps/Hello-World/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">iwitness</h3>
+                <a href="/apps/iwitness/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">iwitness accident documentation assistance</h3>
+                <a href="/apps/iwitness-accident-documentation-assistance/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">iwitness android</h3>
+                <a href="/apps/iwitness-android/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">legendary backend</h3>
+                <a href="/apps/legendary-backend/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">legendary frontend</h3>
+                <a href="/apps/legendary-frontend/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">legendary leads</h3>
+                <a href="/apps/legendary-leads/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">legend_platform</h3>
+                <a href="/apps/legend_platform/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">legend_stack</h3>
+                <a href="/apps/legend_stack/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">linklocker</h3>
+                <a href="/apps/linklocker/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">loud ghl manager</h3>
+                <a href="/apps/loud-ghl-manager/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">murphy law</h3>
+                <a href="/apps/murphy-law/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">nextjs</h3>
+                <a href="/apps/nextjs/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">nextjs ai chatbot</h3>
+                <a href="/apps/nextjs-ai-chatbot/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">omega helpdesk</h3>
+                <a href="/apps/omega-helpdesk/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">omega ucp</h3>
+                <a href="/apps/omega-ucp/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">omega ucp v44</h3>
+                <a href="/apps/omega-ucp-v44/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">omega ui</h3>
+                <a href="/apps/omega-ui/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">syncloud aios by omega ui</h3>
+                <a href="/apps/syncloud-aios-by-omega-ui/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">syncloud arc</h3>
+                <a href="/apps/syncloud-arc/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">syncloud collection</h3>
+                <a href="/apps/syncloud-collection/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">syncloud connect</h3>
+                <a href="/apps/syncloud-connect/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">syncloud connect 44</h3>
+                <a href="/apps/syncloud-connect-44/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">syncloud orchestrator</h3>
+                <a href="/apps/syncloud-orchestrator/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">SynCloud_Connect</h3>
+                <a href="/apps/SynCloud_Connect/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">synconnect sphere</h3>
+                <a href="/apps/synconnect-sphere/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">synergy toolkit</h3>
+                <a href="/apps/synergy-toolkit/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">ucp ai router</h3>
+                <a href="/apps/ucp-ai-router/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">ucp command studio</h3>
+                <a href="/apps/ucp-command-studio/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">ucp efficient ai informative</h3>
+                <a href="/apps/ucp-efficient-ai-informative/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">UCP Engine</h3>
+                <a href="/apps/UCP-Engine/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">ucp gpu efficiency demo</h3>
+                <a href="/apps/ucp-gpu-efficiency-demo/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">ucp granite demo tool</h3>
+                <a href="/apps/ucp-granite-demo-tool/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">ucp interpreter console</h3>
+                <a href="/apps/ucp-interpreter-console/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">ucp runner</h3>
+                <a href="/apps/ucp-runner/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">ucp universal command protocol</h3>
+                <a href="/apps/ucp-universal-command-protocol/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">ucrash claims</h3>
+                <a href="/apps/ucrash-claims/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-lg font-bold mb-4 uppercase truncate">workspace hub</h3>
+                <a href="/apps/workspace-hub/" class="block text-center py-2 rounded font-bold" style="background: var(--blue)">LAUNCH APP</a>
+            </div>
+        
+    </main>
 
     <script>
-        const search = document.getElementById('appSearch');
-        const cards = document.querySelectorAll('.glass-card');
-
-        search.addEventListener('input', (e) => {
+        document.getElementById('search').addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
-            cards.forEach(card => {
-                const name = card.querySelector('h2').innerText.toLowerCase();
-                card.style.display = name.includes(term) ? 'flex' : 'none';
+            document.querySelectorAll('.glass-card').forEach(card => {
+                card.style.display = card.innerText.toLowerCase().includes(term) ? 'block' : 'none';
             });
         });
     </script>
