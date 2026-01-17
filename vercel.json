@@ -1,10 +1,11 @@
 {
+  "version": 2,
   "cleanUrls": true,
   "trailingSlash": true,
   "rewrites": [
     {
       "source": "/apps/:app/src/:path*",
-      "destination": "/apps/:app/:path*"
+      "destination": "/apps/:app/src/:path*"
     },
     {
       "source": "/apps/:app/assets/:path*",
