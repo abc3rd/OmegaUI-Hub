@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Allow: /apps/
+
+Sitemap: https://syncloudconnect.com/sitemap.xml
