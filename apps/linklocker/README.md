@@ -1,2 +1,0 @@
-# linklocker
-file locker

@@ -1,8 +1,0 @@
-{
-  "name": "GLYTCH Sovereign Command Intelligence",
-  "description": "GLYTCH is the intelligent butler of the SynCloud ecosystem, utilizing the Universal Command Protocol (UCP) for high-fidelity commerce automation at syncloudconnect.com.",
-  "requestFramePermissions": [
-    "camera",
-    "geolocation"
-  ]
-}

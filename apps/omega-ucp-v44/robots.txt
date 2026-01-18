@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Allow: /ucp.html
-Disallow: /assets/js/
-Disallow: /tools/
-
-Sitemap: https://syncloudconnect.org/sitemap.xml
