@@ -1,12 +1,24 @@
 # Robots.txt for SynCloud Connect - Omega UI, LLC
+# Designed to maximize SEO while protecting UCP Intellectual Property
+
 User-agent: *
 Allow: /
+Allow: /legal.html
 Sitemap: https://www.syncloudconnect.com/sitemap.xml
 
-# Prevent AI scrapers from indexing proprietary UCP internal assets
+# PROTECT PROPRIETARY IP: Block AI scrapers from blueprints and app logic
 User-agent: GPTBot
+Disallow: /apps/
 Disallow: /assets/blueprints/
-Disallow: /assets/ucp-internal/
 
 User-agent: CCBot
+Disallow: /apps/
 Disallow: /assets/blueprints/
+
+User-agent: AnthropicAI
+Disallow: /apps/
+
+# Prevent indexing of internal dev folders
+User-agent: *
+Disallow: /node_modules/
+Disallow: /private/
