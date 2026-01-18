@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
-Allow: /apps/
+Sitemap: https://www.syncloudconnect.com/sitemap.xml
 
-Sitemap: https://syncloudconnect.com/sitemap.xml
+User-agent: GPTBot
+Disallow: /assets/private/
