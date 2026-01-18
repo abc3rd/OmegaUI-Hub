@@ -1,218 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 4-Layer UCP Stack: Deterministic AI Infrastructure | Omega UI, LLC</title>
-    <meta name="description" content="Explore the U.S. Patent Pending Universal Command Protocol (UCP). Learn how our 4-layer stack reclaims 90% of AI token waste and reduces carbon footprints by 99%.">
-    <link rel="canonical" href="https://syncloudconnect.com/ucp-architecture.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "TechArticle",
-      "headline": "The Universal Command Protocol (UCP): The 4-Layer Stack for Deterministic AI",
-      "author": {
-        "@type": "Person",
-        "name": "Alonza Brady Curry"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Omega UI, LLC",
-        "logo": "https://syncloudconnect.com/assets/logo.png"
-      },
-      "description": "Technical breakdown of the UCP 4-layer stack, focusing on AI token reclamation and deterministic machine logic.",
-      "keywords": "Universal Command Protocol, UCP, Deterministic AI, AI Infrastructure, Token Reclamation, Zero-Waste AI"
-    }
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D1N75W37BQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-D1N75W37BQ');
     </script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCP Technical Blueprints | Deterministic AI Infrastructure | Omega UI</title>
+    
+    <meta name="description" content="Complete 9-part technical blueprint for the Universal Command Protocol (UCP). Detokenization, Semantic Caching, and ROI scaling for Enterprise AI.">
+    <link rel="canonical" href="https://syncloudconnect.com/ucp-architecture.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+
     <style>
-        :root { --magenta: #ea00ea; --blue: #2699fe; --green: #4bce2a; --dark: #0f1115; }
-        body { background: var(--dark); color: #9ca3af; font-family: 'Inter', sans-serif; }
-        .hero-gradient { background: radial-gradient(circle at top right, rgba(234, 0, 234, 0.1), transparent); }
-        .layer-card { transition: transform 0.3s ease, border-color 0.3s ease; }
-        .layer-card:hover { transform: translateY(-5px); border-color: var(--magenta); }
-        h2 { color: white; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+        :root { --magenta: #ea00ea; --blue: #2699fe; --green: #4bce2a; --deep-black: #0a0b0e; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--deep-black); color: #d1d5db; overflow: hidden; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: #ffffff; text-transform: uppercase; }
+        .bg-grid { background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px); background-size: 40px 40px; }
+        .gradient-text { background: linear-gradient(to right, var(--magenta), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .sidebar-item.active { background: linear-gradient(90deg, rgba(234, 0, 234, 0.2) 0%, transparent 100%); border-left: 4px solid var(--magenta); color: white; }
+        .tech-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.5rem; transition: all 0.2s; }
+        .tech-card:hover { border-color: var(--magenta); background: rgba(255, 255, 255, 0.05); }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
     </style>
 </head>
+<body class="bg-grid">
 
-<body class="hero-gradient min-h-screen">
-    <nav class="border-b border-white/5 p-6 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="font-black text-white text-xl tracking-tighter">Ω OMEGA UI</a>
-            <div class="text-[10px] font-mono text-magenta uppercase tracking-widest px-4 py-1 border border-magenta/30 rounded-full">
-                Patent Pending: U.S. 2026
-            </div>
+    <header class="h-20 bg-[#0a0b0e]/95 backdrop-blur-lg border-b border-white/5 flex items-center px-6 relative z-50">
+        <div class="max-w-7xl mx-auto w-full flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-9 h-9 bg-[#ea00ea] rounded-lg flex items-center justify-center font-black text-white text-lg">Ω</div>
+                <div class="flex flex-col leading-tight">
+                    <span class="text-white font-black text-lg tracking-tighter uppercase">OMEGA UI</span>
+                    <span class="text-blue font-bold text-[9px] tracking-[0.2em] uppercase">UCP Standard</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex space-x-8 text-[10px] font-extrabold uppercase tracking-widest text-gray-500">
+                <a href="index.html" class="hover:text-magenta transition-colors">Portal Home</a>
+                <a href="ucp-architecture.html" class="text-white border-b border-magenta">Architecture</a>
+                <a href="legal.html" class="hover:text-magenta transition-colors">Compliance</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-20">
-        <header class="mb-24 text-center">
-            <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-tight mb-8">
-                The 4-Layer <span class="text-magenta">UCP</span> Stack
-            </h1>
-            <p class="text-xl max-w-2xl mx-auto text-gray-400">
-                The global architectural standard for reclaiming <span class="text-white">90% of AI token waste</span> and achieving deterministic machine execution.
-            </p>
-        </header>
-
-        <section class="mb-32">
-            <h2>Why Probabilistic AI Fails the Enterprise</h2>
-            <div class="grid md:grid-cols-2 gap-12 text-sm leading-relaxed">
-                <div class="p-8 bg-white/5 rounded-3xl border border-white/5">
-                    <h3 class="text-white font-bold mb-4 uppercase tracking-widest text-xs">The Problem: LLM Guesswork</h3>
-                    <p>Traditional AI relies on probabilistic sequence prediction, which leads to hallucinations, variable latency, and massive redundant energy consumption.</p>
-                </div>
-                <div class="p-8 bg-magenta/10 rounded-3xl border border-magenta/20">
-                    <h3 class="text-magenta font-bold mb-4 uppercase tracking-widest text-xs">The Solution: UCP Determinism</h3>
-                    <p>UCP decouples AI "thinking" from deterministic "doing." It creates a repeatable, secure, and low-latency bridge between human intent and machine action.</p>
-                </div>
+    <div class="h-[calc(100vh-80px)] flex overflow-hidden">
+        <aside class="w-80 bg-[#0d0e11] border-r border-white/5 flex flex-col h-full shrink-0">
+            <div class="p-8 border-b border-white/5">
+                <p class="text-[9px] text-magenta font-black uppercase tracking-[0.4em] mb-1">Blueprint Series</p>
+                <h2 class="text-sm font-black uppercase">Technical Index</h2>
             </div>
-        </section>
+            <nav id="sidebar-nav" class="flex-1 overflow-y-auto py-6 px-4 space-y-2"></nav>
+        </aside>
 
-        <section class="mb-32">
-            <h2>Deep Dive: Architecture</h2>
-            <div class="space-y-6">
-                <div class="layer-card p-10 bg-white/5 rounded-[2.5rem] border border-white/5">
-                    <div class="flex items-center gap-4 mb-6">
-                        <span class="text-magenta font-black text-4xl">01</span>
-                        <h3 class="text-white text-xl font-black uppercase italic">Semantic Interpretation</h3>
-                    </div>
-                    <p class="text-sm">Natural language intent is distilled into a high-density semantic packet. AI models are invoked exactly once per unique intent, preventing redundant inference waste.</p>
-                </div>
-                <div class="layer-card p-10 bg-white/5 rounded-[2.5rem] border border-white/5">
-                    <div class="flex items-center gap-4 mb-6">
-                        <span class="text-blue-400 font-black text-4xl">02</span>
-                        <h3 class="text-white text-xl font-black uppercase italic">Semantic Caching</h3>
-                    </div>
-                    <p class="text-sm">Utilizing vector embeddings, UCP identifies recurring intents instantly. This "Deterministic Bypass" eliminates up to 99% of energy consumption for repeated tasks.</p>
-                </div>
-                <div class="layer-card p-10 bg-white/5 rounded-[2.5rem] border border-white/5">
-                    <div class="flex items-center gap-4 mb-6">
-                        <span class="text-green-400 font-black text-4xl">03</span>
-                        <h3 class="text-white text-xl font-black uppercase italic">Handshake Verification</h3>
-                    </div>
-                    <p class="text-sm">A bidirectional HMAC handshake verifies system readiness before execution, reducing API failures and preventing unauthorized replay attacks.</p>
-                </div>
-                <div class="layer-card p-10 bg-white/5 rounded-[2.5rem] border border-white/5">
-                    <div class="flex items-center gap-4 mb-6">
-                        <span class="text-white font-black text-4xl">04</span>
-                        <h3 class="text-white text-xl font-black uppercase italic">Deterministic Driver</h3>
-                    </div>
-                    <p class="text-sm">Modular drivers execute the final command with zero AI latency and 100% accuracy, ensuring consistent performance across the Omega UI ecosystem.</p>
-                </div>
+        <main class="flex-1 overflow-y-auto bg-grid relative p-12 lg:p-24">
+            <div id="explorer-content" class="max-w-4xl mx-auto pb-40"></div>
+            
+            <div class="fixed bottom-0 right-0 p-8 flex items-center gap-6 text-[9px] font-mono text-gray-700 uppercase tracking-widest bg-gradient-to-t from-[#0a0b0e] to-transparent w-full justify-end">
+                <span>Corp: +1 941-882-0130</span>
+                <span class="text-[#ea00ea]">Patent Pending: US 2026</span>
             </div>
-        </section>
+        </main>
+    </div>
 
-        <section class="mb-32 border-t border-white/10 pt-20">
-            <h2 class="text-center mb-16">Sustainability Case Study</h2>
-            <div class="bg-green-500/5 p-12 rounded-[3rem] border border-green-500/10 flex flex-col md:flex-row gap-12 items-center">
-                <div class="flex-1">
-                    <p class="text-3xl font-black text-white mb-6 uppercase tracking-tighter">99% Carbon Reduction</p>
-                    <p class="text-sm leading-loose">
-                        In a longitudinal study of recurring enterprise tasks, UCP-compliant infrastructure reduced energy consumption from <span class="text-white">0.010 kWh</span> per probabilistic task to less than <span class="text-green-400 font-bold">0.0001 kWh</span> for cached deterministic execution.
-                    </p>
-                </div>
-                <div class="w-full md:w-1/3 grid grid-cols-1 gap-4">
-                    <div class="bg-white/5 p-6 rounded-2xl text-center">
-                        <p class="text-green-400 font-black text-2xl">90%</p>
-                        <p class="text-[10px] uppercase tracking-widest">Token Savings</p>
-                    </div>
-                    <div class="bg-white/5 p-6 rounded-2xl text-center">
-                        <p class="text-green-400 font-black text-2xl">0%</p>
-                        <p class="text-[10px] uppercase tracking-widest">Hallucinations</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <script>
+        const pages = [
+            { id: 1, title: "L1: Semantic Interpretation", subtitle: "Intent Minification", points: ["Distills raw intent into minified UCP packets.", "Bypasses 'Conversational Fluff' overhead.", "Single inference cost per unique command."], desc: "The first stage of detokenization, turning expensive natural language into actionable machine instructions." },
+            { id: 2, title: "L2: Semantic Caching", subtitle: "Deterministic Bypass", points: ["Vector distance matching for intent validation.", "Eliminates 99% of recurring inference energy.", "Instant execution from local semantic memory."], desc: "Ensures that enterprise systems never 're-think' a command they have already processed." },
+            { id: 3, title: "L3: HMAC Handshake", subtitle: "Security Perimeter", points: ["Bidirectional cryptographic verification.", "Protects against replay and spoofing attacks.", "Verifies system identity before driver firing."], desc: "A robust security layer ensuring that every command is signed and authorized for execution." },
+            { id: 4, title: "L4: Deterministic Driver", subtitle: "Machine Execution", points: ["Zero-latency local firing.", "Absolute zero hallucination risk.", "Predictable 1:1 machine outcomes."], desc: "The final translation of UCP intent into high-fidelity machine action." },
+            { id: 5, title: "Sustainability Matrix", subtitle: "Zero-Waste Intelligence", points: ["99% reduction in GPU thermal load.", "Carbon footprint reclamation per 1M commands.", "Energy-efficient edge scaling logic."], desc: "Positioning UCP as the green standard for enterprise-scale AI implementation." },
+            { id: 6, title: "ROI Scaling", subtitle: "Economic Projections", points: ["90% reduction in monthly token bleed.", "Flat-line cost stability for large workforces.", "Rapid amortization of infrastructure shifts."], desc: "Compare traditional LLM costs against the optimized UCP economic model." },
+            { id: 7, title: "Security Handshake", subtitle: "Encryption Standards", points: ["TLS 1.3+ data-in-transit protection.", "Hardware-level handshake verification.", "Non-repudiation of deterministic commands."], desc: "Deep technical dive into the cryptographic trust model of the Omega UI ecosystem." },
+            { id: 8, title: "QR & Physical Minification", subtitle: "Offline Execution", points: ["Bit-level serialization for visual storage.", "Offline AI logic via physical pixels.", "High-density error correction protocols."], desc: "Executing UCP-orchestrated tasks on devices with zero network connectivity." },
+            { id: 9, title: "Omega UI Ecosystem", subtitle: "Connectivity Map", points: ["SynCloud, GLYTCH, and LegenDatabase sync.", "Unified command relay via Cloud Connect.", "Cross-platform deterministic execution."], desc: "How UCP serves as the connective tissue for the entire corporate brand umbrella." }
+        ];
 
-        <footer id="contact" class="bg-[#0a0b0e] border-t border-white/5 pt-24 pb-12 px-4 md:px-6">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-12 mb-20">
+        let currentId = 1;
+
+        function render() {
+            const nav = document.getElementById('sidebar-nav');
+            const content = document.getElementById('explorer-content');
+            const page = pages.find(p => p.id === currentId);
+
+            nav.innerHTML = pages.map(p => `
+                <button onclick="currentId=${p.id};render()" class="sidebar-item w-full text-left p-4 rounded-xl transition-all ${p.id === currentId ? 'active' : 'text-gray-500 hover:bg-white/5'}">
+                    <div class="text-[8px] font-black opacity-30 uppercase mb-1">Blueprint 0${p.id}</div>
+                    <div class="text-[10px] font-bold uppercase truncate">${p.title}</div>
+                </button>
+            `).join('');
+
+            content.innerHTML = `
+                <div class="animate-in fade-in slide-in-from-bottom-8 duration-700">
+                    <h1 class="text-6xl lg:text-8xl font-black mb-4 uppercase tracking-tighter leading-none">${page.title}</h1>
+                    <p class="text-magenta font-bold text-2xl mb-16 italic opacity-70">${page.subtitle}</p>
                     
-                    <div class="xl:col-span-1">
-                        <div class="flex items-center space-x-3 mb-8">
-                            <div class="w-10 h-10 bg-[#ea00ea] rounded-lg flex items-center justify-center font-black text-white text-xl uppercase shadow-[0_0_15px_rgba(234,0,234,0.3)]">Ω</div>
-                            <span class="text-white font-black text-2xl tracking-tighter uppercase">OMEGA UI</span>
-                        </div>
-                        <p class="text-gray-500 text-[10px] leading-loose uppercase tracking-widest font-bold mb-6">
-                            Architecting zero-waste AI infrastructure via the UCP standard.
-                        </p>
-                        <div class="text-[10px] text-gray-600 uppercase tracking-widest font-bold">Fort Myers, FL</div>
+                    <div class="grid lg:grid-cols-2 gap-8 mb-20">
+                        ${page.points.map(point => `
+                            <div class="tech-card p-10">
+                                <p class="text-white text-lg font-medium leading-relaxed">${point}</p>
+                            </div>
+                        `).join('')}
                     </div>
-        
-                    <div>
-                        <h4 class="text-[10px] font-black uppercase text-[#ea00ea] tracking-[0.5em] mb-8">Follow Us</h4>
-                        <nav class="flex flex-col space-y-4 text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                            <a href="https://www.linkedin.com/in/omegaui-llc/" target="_blank" class="hover:text-white transition-colors flex items-center gap-2">
-                                <span class="text-[#2699fe]">LN</span> LinkedIn
-                            </a>
-                            <a href="https://x.com/NationWreckWise" target="_blank" class="hover:text-white transition-colors flex items-center gap-2">
-                                <span class="text-white">X</span> Twitter
-                            </a>
-                            <a href="https://github.com/abc3rd" target="_blank" class="hover:text-white transition-colors flex items-center gap-2">
-                                <span class="text-gray-300">GH</span> GitHub
-                            </a>
-                            <a href="https://youtube.com/@MrGoolosh" target="_blank" class="hover:text-white transition-colors flex items-center gap-2">
-                                <span class="text-red-500">YT</span> YouTube
-                            </a>
-                        </nav>
-                    </div>
-        
-                    <div>
-                        <h4 class="text-[10px] font-black uppercase text-[#ea00ea] tracking-[0.5em] mb-8">Technical</h4>
-                        <nav class="flex flex-col space-y-4 text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                            <a href="ucp-architecture.html" class="hover:text-white transition-colors text-white">UCP Architecture</a>
-                            <a href="https://ucp.omegaui.com" class="hover:text-white transition-colors">UCP Portal</a>
-                            <a href="https://ucp-runner.omegaui.com" class="hover:text-white transition-colors">UCP Runner</a>
-                            <a href="https://ucp-interpreter-console.omegaui.com" class="hover:text-white transition-colors">Interpreter</a>
-                        </nav>
-                    </div>
-        
-                    <div>
-                        <h4 class="text-[10px] font-black uppercase text-gray-500 tracking-[0.5em] mb-8">Ecosystem</h4>
-                        <nav class="flex flex-col space-y-4 text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                            <a href="https://glytch.cloud" class="hover:text-white transition-colors">GLYTCH UI</a>
-                            <a href="https://syncloudconnect.com" class="hover:text-[#ea00ea] transition-colors">SynCloud Connect</a>
-                            <a href="#detokenization" class="hover:text-white transition-colors">Detokenization</a>
-                        </nav>
-                    </div>
-        
-                    <div>
-                        <h4 class="text-[10px] font-black uppercase text-[#2699fe] tracking-[0.5em] mb-8">Legal</h4>
-                        <nav class="flex flex-col space-y-4 text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                            <a href="legal.html" class="hover:text-white transition-colors">Patent Disclosure</a>
-                            <a href="legal.html" class="hover:text-white transition-colors">Privacy Policy</a>
-                            <a href="legal.html" class="hover:text-white transition-colors">Terms of Service</a>
-                        </nav>
-                    </div>
-        
-                    <div>
-                        <h4 class="text-[10px] font-black uppercase text-gray-600 tracking-[0.5em] mb-8">HQ</h4>
-                        <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 space-y-2">
-                            <p class="text-gray-400">Omega UI, LLC</p>
-                            <p>2744 Edison Avenue, Unit-7</p>
-                            <p>Suite C-3, Fort Myers, FL 33916</p>
-                            <p class="text-white pt-2 font-black">Corp: +1 941-882-0130</p>
-                        </div>
+                    
+                    <div class="bg-white/5 p-12 rounded-[3rem] border border-white/5">
+                        <h3 class="text-blue text-[10px] font-black uppercase tracking-[0.4em] mb-8">Strategic Analysis</h3>
+                        <p class="text-gray-400 text-2xl font-medium leading-relaxed">${page.desc}</p>
                     </div>
                 </div>
-        
-                <div class="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div class="text-[9px] font-mono text-gray-700 uppercase tracking-[0.4em]">
-                        © 2026 Omega UI, LLC // U.S. Patent Pending
-                    </div>
-                    <div class="flex items-center gap-6">
-                        <div class="text-[9px] font-mono text-[#ea00ea] uppercase tracking-[0.4em]">
-                            G-D1N75W37BQ
-                        </div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-[#4bce2a] shadow-[0_0_10px_#4bce2a] animate-pulse"></div>
-                        <span class="text-[9px] font-mono text-gray-500 uppercase tracking-[0.4em]">System Status: Nominal</span>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </main>
+            `;
+        }
+        window.onload = render;
+    </script>
 </body>
 </html>
