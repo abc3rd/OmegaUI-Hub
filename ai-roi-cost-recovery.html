@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D1N75W37BQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-D1N75W37BQ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI ROI & Cost Recovery Center | Omega UI</title>
+    
+    <meta name="description" content="Calculate your enterprise AI waste. Omega UI’s UCP reduces token consumption by 90% and eliminates the hidden cost of probabilistic drift. Stop experimenting; start recovering capital.">
+    <link rel="canonical" href="https://syncloudconnect.com/ai-roi-cost-recovery.html">
+    
+    <script src="meta-manager.js" defer></script>
+    <script src="global-nav.js" defer></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --magenta: #ea00ea; --blue: #2699fe; --green: #4bce2a; --deep-black: #0a0b0e; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--deep-black); color: #d1d5db; scroll-behavior: smooth; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: #ffffff; text-transform: uppercase; line-height: 1.1; }
+        .bg-grid { background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px); background-size: 40px 40px; }
+        .gradient-text { background: linear-gradient(to right, var(--magenta), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 2rem; padding: 3rem; }
+        input[type=range] { accent-color: var(--magenta); width: 100%; height: 8px; border-radius: 5px; background: #1f2937; cursor: pointer; -webkit-appearance: none; }
+        .roi-stat { font-size: 3rem; font-weight: 900; line-height: 1; }
+    </style>
+</head>
+<body class="bg-grid">
+
+    <div id="app-header"></div>
+
+    <main>
+        <section class="max-w-7xl mx-auto px-6 pt-32 pb-40 text-center lg:text-left flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-2/3">
+                <h1 class="text-6xl md:text-8xl font-black mb-8 uppercase tracking-tighter">
+                    Stop Paying the <br><span class="gradient-text italic">"Drift Tax"</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-2xl mb-12">
+                    The era of AI experimentation is over. The era of Quarterly ROI has begun. Reclaim capital wasted on redundant probabilistic inference instantly.
+                </p>
+                <a href="#calculator" class="inline-block bg-magenta text-white px-10 py-5 rounded-xl font-black text-xs uppercase tracking-widest hover:brightness-110 shadow-lg shadow-magenta/20">Launch ROI Calculator</a>
+            </div>
+            <div class="lg:w-1/3">
+                <div class="card border-magenta/30 bg-magenta/5 text-center">
+                    <div class="text-magenta font-black text-5xl mb-2">90%</div>
+                    <div class="text-[10px] font-black uppercase tracking-widest text-white">Average Cost Recovery</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-5xl mx-auto px-6 py-32 border-t border-white/5">
+            <div class="grid md:grid-cols-2 gap-20">
+                <div>
+                    <h2 class="text-3xl font-black mb-8">The 2026 CFO Mandate</h2>
+                    <p class="text-gray-400 mb-6">CFOs are no longer asking if AI can write an email. They are asking why they are paying $0.03 every single time an employee asks the same question, thousands of times a day.</p>
+                    <p class="text-gray-400">The hidden killer of your AI budget is not the model price—it is <strong>Token Bloat and Probabilistic Drift.</strong></p>
+                </div>
+                <div class="bg-white/5 p-10 rounded-[2.5rem] border border-white/10">
+                    <h4 class="text-blue text-[10px] font-black uppercase tracking-widest mb-4">What is Probabilistic Drift?</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed italic">
+                        "The variance in output and redundancy in cost that occurs when treating AI as a conversation partner rather than an execution engine. It accounts for 30–40% of wasted API spend."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="calculator" class="max-w-7xl mx-auto px-6 py-32">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter">Calculate Your <span class="text-magenta">Recovery.</span></h2>
+            </div>
+            <div class="card grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-12">
+                    <div>
+                        <div class="flex justify-between mb-4">
+                            <label class="text-[10px] font-black uppercase text-gray-500">Total Employees Using AI</label>
+                            <span id="val-emp" class="text-white font-black">1,000</span>
+                        </div>
+                        <input type="range" id="range-emp" min="10" max="10000" step="10" value="1000">
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-4">
+                            <label class="text-[10px] font-black uppercase text-gray-500">Avg Daily Commands / Seat</label>
+                            <span id="val-cmd" class="text-white font-black">50</span>
+                        </div>
+                        <input type="range" id="range-cmd" min="1" max="200" step="1" value="50">
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-4">
+                            <label class="text-[10px] font-black uppercase text-gray-500">Redundancy Rate (%)</label>
+                            <span id="val-red" class="text-magenta font-black">40%</span>
+                        </div>
+                        <input type="range" id="range-red" min="10" max="90" step="5" value="40">
+                    </div>
+                </div>
+                
+                <div class="bg-black/50 p-12 rounded-[2rem] border border-magenta/20 text-center">
+                    <div class="mb-8">
+                        <p class="text-[9px] font-black uppercase text-gray-500 tracking-widest mb-2">Estimated Annual Waste</p>
+                        <div id="out-waste" class="roi-stat text-gray-600 line-through">$2,737,500</div>
+                    </div>
+                    <div>
+                        <p class="text-[9px] font-black uppercase text-green tracking-widest mb-2">Annual Capital Recovered (UCP)</p>
+                        <div id="out-savings" class="roi-stat text-green">$2,463,750</div>
+                    </div>
+                    <p class="text-[10px] text-gray-600 mt-8 uppercase font-bold tracking-widest">Calculated via UCP Layer 2 Caching Model</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-5xl mx-auto px-6 py-32">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/10">
+                    <h4 class="text-xs font-black mb-4">API Failure Recovery</h4>
+                    <p class="text-xs text-gray-500">Layer 3 Verification reduces API failure rates by 60–80% by pre-checking system states before spend.</p>
+                </div>
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/10">
+                    <h4 class="text-xs font-black mb-4">Carbon ROI</h4>
+                    <p class="text-xs text-gray-500">Utilizing UCP reduces recurring task energy by 99%, fulfilling ESG Scope 3 mandates.</p>
+                </div>
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/10">
+                    <h4 class="text-xs font-black mb-4">Infrastructure Sale</h4>
+                    <p class="text-xs text-gray-500">Direct integration with existing LLMs (OpenAI, Anthropic) via SynCloud Connect.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="app-footer"></div>
+
+    <script>
+        const empRange = document.getElementById('range-emp');
+        const cmdRange = document.getElementById('range-cmd');
+        const redRange = document.getElementById('range-red');
+
+        function updateROI() {
+            const emp = parseInt(empRange.value);
+            const cmd = parseInt(cmdRange.value);
+            const red = parseInt(redRange.value) / 100;
+            
+            document.getElementById('val-emp').innerText = emp.toLocaleString();
+            document.getElementById('val-cmd').innerText = cmd.toLocaleString();
+            document.getElementById('val-red').innerText = (red * 100) + '%';
+
+            const tradAnnual = emp * cmd * 365 * 0.15;
+            const savings = tradAnnual * red * 0.90;
+
+            document.getElementById('out-waste').innerText = '$' + Math.floor(tradAnnual).toLocaleString();
+            document.getElementById('out-savings').innerText = '$' + Math.floor(savings).toLocaleString();
+        }
+
+        [empRange, cmdRange, redRange].forEach(el => el.addEventListener('input', updateROI));
+        window.onload = updateROI;
+    </script>
+</body>
+</html>
