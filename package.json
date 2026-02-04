@@ -4,5 +4,8 @@
   "private": true,
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "dependencies": {
+    "@vercel/analytics": "^1.6.1"
+  }
 }
