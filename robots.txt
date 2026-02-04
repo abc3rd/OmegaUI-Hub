@@ -27,16 +27,6 @@ Disallow: /private/
 Disallow: /tmp/
 Disallow: /config/
 
-# Sitemap Link
-Sitemap: https://syncloudconnect.com/sitemap.xml
-
-
---------------------------------------------------------------------------------------
-
-
-# OMEGA UI // ROBOTS.TXT
-# Optimized for SynCloud Connect & UCP Standard 2026
-
 # PROTECT PROPRIETARY IP: Block AI scrapers from blueprints and app logic
 User-agent: GPTBot
 User-agent: CCBot
