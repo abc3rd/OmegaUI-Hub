@@ -29,3 +29,35 @@ Disallow: /config/
 
 # Sitemap Link
 Sitemap: https://syncloudconnect.com/sitemap.xml
+
+
+--------------------------------------------------------------------------------------
+
+
+# OMEGA UI // ROBOTS.TXT
+# Optimized for SynCloud Connect & UCP Standard 2026
+
+# PROTECT PROPRIETARY IP: Block AI scrapers from blueprints and app logic
+User-agent: GPTBot
+User-agent: CCBot
+User-agent: AnthropicAI
+User-agent: Claude-Web
+Disallow: /apps/
+Disallow: /assets/blueprints/
+
+# General Rules
+User-agent: *
+Allow: /
+Allow: /global-nav.js
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /legal.html
+
+# Prevent indexing of internal dev and sensitive folders
+Disallow: /node_modules/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /config/
+
+# Sitemap Link
+Sitemap: https://syncloudconnect.com/sitemap.xml
