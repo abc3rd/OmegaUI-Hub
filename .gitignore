@@ -1,2 +1,6 @@
 .vercel
 .env*.local
+node_modules/
+dist/  # If you create a build/output folder
+*.log  # Any log files from scripts
+.git/  # Usually auto-ignored, but safe
