@@ -1,40 +1,6 @@
 # OMEGA UI // ROBOTS.TXT
 # Optimized for SynCloud Connect & UCP Standard 2026
 
-User-agent: *
-Allow: /
-Allow: /global-nav.js
-Allow: /assets/css/
-Allow: /assets/js/
-Allow: /legal.html
-
-# PROTECT PROPRIETARY IP: Block AI scrapers from blueprints and app logic
-User-agent: GPTBot
-Disallow: /apps/
-Disallow: /assets/blueprints/
-
-User-agent: CCBot
-Disallow: /apps/
-Disallow: /assets/blueprints/
-
-User-agent: AnthropicAI
-Disallow: /apps/
-
-# Prevent indexing of internal dev and sensitive folders
-User-agent: *
-Disallow: /node_modules/
-Disallow: /private/
-Disallow: /tmp/
-Disallow: /config/
-
-# PROTECT PROPRIETARY IP: Block AI scrapers from blueprints and app logic
-User-agent: GPTBot
-User-agent: CCBot
-User-agent: AnthropicAI
-User-agent: Claude-Web
-Disallow: /apps/
-Disallow: /assets/blueprints/
-
 # General Rules
 User-agent: *
 Allow: /
@@ -43,7 +9,17 @@ Allow: /assets/css/
 Allow: /assets/js/
 Allow: /legal.html
 
+# PROTECT PROPRIETARY IP: Block AI scrapers from blueprints and app logic
+User-agent: GPTBot
+User-agent: CCBot
+User-agent: AnthropicAI
+User-agent: Claude-Web
+User-agent: GPTBot
+Disallow: /apps/
+Disallow: /assets/blueprints/
+
 # Prevent indexing of internal dev and sensitive folders
+User-agent: *
 Disallow: /node_modules/
 Disallow: /private/
 Disallow: /tmp/
